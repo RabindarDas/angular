@@ -1,0 +1,75 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Angular Reactive Form</h3>
+                </div>
+                <div class="card-body">
+                    <form class="form" [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+                     
+                        
+                        <div *ngIf="signupForm.get('username')" class="form-group">
+                            <label for="username">Username:</label>
+                            <input type="text" id="username" class="form-control" formControlName="username">
+                            <div *ngIf="signupForm.get('username') ?.invalid && (signupForm.get('username') ?.dirty || signupForm.get('username') ?.touched)" class="text-danger error">
+                              Username is required and must be at least 4 characters.
+                            </div>
+                          </div>
+
+
+                          <div *ngIf="signupForm.get('email')" class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="text" id="email" class="form-control" formControlName="email">
+                            <div *ngIf="signupForm.get('email') ?.invalid && (signupForm.get('email') ?.dirty || signupForm.get('email') ?.touched)" class="text-danger error">
+                                Please enter a valid email address..
+                            </div>
+                          </div>
+                          <div *ngIf="signupForm.get('password')" class="form-group">
+                            <label for="password">Password:</label>
+                            <input type="text" id="password" class="form-control" formControlName="password">
+                            <div *ngIf="signupForm.get('password') ?.invalid && (signupForm.get('password') ?.dirty || signupForm.get('password') ?.touched)" class="text-danger error">
+                                Password is required and must be at least 6 characters..
+                            </div>
+                          </div>
+                        
+                          <div *ngIf="signupForm.get('confirmPassword')" class="form-group">
+                            <label for="confirmPassword">Confirm Password:</label>
+                            <input type="text" id="confirmPassword" class="form-control" formControlName="confirmPassword">
+                            <div *ngIf="signupForm.get('confirmPassword') ?.invalid && (signupForm.get('confirmPassword') ?.dirty || signupForm.get('confirmPassword') ?.touched)" class="text-danger error">
+                              Please Confirm Password .
+                            </div>
+                          </div>
+                          <div *ngIf="signupForm.get('phone')" class="form-group">
+                            <label for="phone">PnoneNo:</label>
+                            <input type="text" id="phone" class="form-control" formControlName="phone">
+                            <div *ngIf="signupForm.get('phone') ?.invalid && (signupForm.get('phone') ?.dirty || signupForm.get('phone') ?.touched)" class="text-danger error">
+                                phone is required and must be at least 10 characters..
+                            </div>
+                          </div>
+                          <!-- <div class="row"  *ngIf="showMsg">
+                            <div class="col-xs-12">
+                              <p class="alert alert-success">
+                                  <strong>Registration Success!</strong> Please click here to login!.
+                    
+                              </p>
+                            </div>
+                          </div> -->
+                        
+
+                        <div class="form-group">
+                            <button type="submit"[disabled]="signupForm.invalid" class="btn btn-primary" >Register</button>
+                            <button type="button"(click)="clearForm()">clear</button>
+                        </div>
+
+                    </form>
+                    <div  *ngIf="signupSuccessMessage" class="success-message">
+
+                     {{signupSuccessMessage}}
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

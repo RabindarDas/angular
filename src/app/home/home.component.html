@@ -1,0 +1,30 @@
+
+<div class="container mt-3">
+    <h2>Employee details are</h2>
+   
+        <table class="table table-hover table-bordered">
+            <thead>
+                <tr>
+                    <th>username</th>
+                    <th>email</th> 
+                    <th>password</th>
+                    <th>confirmPassword</th>
+                    <th>phone</th>
+               
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngfor="let signupForm of employees">
+                    <td>{{signupForm.username}}</td>
+                    <td>{{signupForm.email}}</td>
+                    <td>{{signupForm.password}}</td>
+                    <td>{{signupForm.confirmPassword}}</td>
+                    <td>{{signupForm.phone}}</td>
+                    
+                </tr>
+            </tbody>
+        </table>
+    
+</div>
+
+ 
